@@ -41,7 +41,7 @@ module Sequel
 
           define_method "#{column}=" do |value|
             index = self.class.enums[column].rassoc(value)
-            self[column] = index && index.first
+            index && self[column] = index && index.first
           end
 
           define_method "#{column}" do
